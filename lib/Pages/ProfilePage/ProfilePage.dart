@@ -1,18 +1,12 @@
 import 'package:e_book/Components/BackButton.dart';
 import 'package:e_book/Components/BookTile.dart';
-import 'package:e_book/Components/PrimaryButton.dart';
-import 'package:e_book/Config/Colors.dart';
 import 'package:e_book/Controller/AuthController.dart';
 import 'package:e_book/Controller/BookController.dart';
-import 'package:e_book/Models/Data.dart';
 import 'package:e_book/Pages/AddNewBook/AddNewBook.dart';
 import 'package:e_book/const.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
-import '../Homepage/HomePage.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -25,11 +19,11 @@ class ProfilePage extends StatelessWidget {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Get.to(AddNewBookPage());
+          Get.to(const AddNewBookPage());
         },
         child: Icon(
           Icons.add,
-          color: Theme.of(context).colorScheme.background,
+          color: Theme.of(context).colorScheme.surface,
         ),
       ),
       body: SingleChildScrollView(
@@ -45,12 +39,12 @@ class ProfilePage extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          MyBackButton(),
+                          const MyBackButton(),
                           Text(
                             "Profile",
                             style: Theme.of(context)
@@ -58,7 +52,7 @@ class ProfilePage extends StatelessWidget {
                                 .bodyLarge
                                 ?.copyWith(
                                   color:
-                                      Theme.of(context).colorScheme.background,
+                                      Theme.of(context).colorScheme.surface,
                                 ),
                           ),
                           IconButton(
@@ -67,36 +61,36 @@ class ProfilePage extends StatelessWidget {
                               },
                               icon: Icon(
                                 Icons.exit_to_app,
-                                color: Theme.of(context).colorScheme.background,
+                                color: Theme.of(context).colorScheme.surface,
                               ))
                         ],
                       ),
-                      SizedBox(height: 60),
+                      const SizedBox(height: 60),
                       Container(
-                        padding: EdgeInsets.all(5),
+                        padding: const EdgeInsets.all(5),
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(100),
                             border: Border.all(
                               width: 2,
-                              color: Theme.of(context).colorScheme.background,
+                              color: Theme.of(context).colorScheme.surface,
                             )),
-                        child: Container(
+                        child: SizedBox(
                           width: 120,
                           height: 120,
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(100),
                             child: Image.network(
-                              "${authController.auth.currentUser!.photoURL ?? defaultProfile}",
+                              authController.auth.currentUser!.photoURL ?? defaultProfile,
                               fit: BoxFit.cover,
                             ),
                           ),
                         ),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       Text(
-                        "${authController.auth.currentUser!.displayName ?? "Root User"}",
+                        authController.auth.currentUser!.displayName ?? "Root User",
                         style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                            color: Theme.of(context).colorScheme.background),
+                            color: Theme.of(context).colorScheme.surface),
                       ),
                       Text(
                         "${authController.auth.currentUser!.email}",
@@ -122,7 +116,7 @@ class ProfilePage extends StatelessWidget {
                           style: Theme.of(context).textTheme.labelMedium),
                     ],
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Obx(
                     () => Column(
                       children: bookController.currentUserBooks

@@ -14,11 +14,11 @@ class MyBackButton extends StatelessWidget {
       child: Row(
         children: [
           SvgPicture.asset("Assets/Icons/back.svg"),
-          SizedBox(width: 10),
+          const SizedBox(width: 10),
           Text(
             "Back",
             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  color: Theme.of(context).colorScheme.background,
+                  color: Theme.of(context).colorScheme.surface,
                 ),
           )
         ],

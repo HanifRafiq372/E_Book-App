@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../Components/PrimaryButton.dart';
 import '../../Controller/AuthController.dart';
 
 class SignupForm extends StatelessWidget {
@@ -48,7 +47,7 @@ class SignupForm extends StatelessWidget {
         const SizedBox(height: 60),
         Obx(
           () => authController.isLoading.value
-              ? CircularProgressIndicator()
+              ? const CircularProgressIndicator()
               : Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -57,7 +56,7 @@ class SignupForm extends StatelessWidget {
                         authController.signupWithEmailPassword(
                             email.text, password.text);
                       },
-                      child: Text("Signup"),
+                      child: const Text("Signup"),
                     )
                   ],
                 ),

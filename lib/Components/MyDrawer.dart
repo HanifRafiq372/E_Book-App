@@ -4,7 +4,7 @@ var myDrawer = Drawer(
   child: Column(
     children: [
       ListTile(
-        title: Text("CALL"),
+        title: const Text("CALL"),
         onTap: () {},
       )
     ],

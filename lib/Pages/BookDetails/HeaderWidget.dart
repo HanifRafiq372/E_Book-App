@@ -26,18 +26,18 @@ class BookDetailsHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: 50),
+        const SizedBox(height: 50),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            MyBackButton(),
+            const MyBackButton(),
             SvgPicture.asset(
               "Assets/Icons/heart.svg",
-              color: Theme.of(context).colorScheme.background,
+              color: Theme.of(context).colorScheme.surface,
             ),
           ],
         ),
-        SizedBox(height: 40),
+        const SizedBox(height: 40),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -50,13 +50,13 @@ class BookDetailsHeader extends StatelessWidget {
             )
           ],
         ),
-        SizedBox(height: 30),
+        const SizedBox(height: 30),
         Text(
           title,
           maxLines: 1,
           textAlign: TextAlign.center,
           style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                color: Theme.of(context).colorScheme.background,
+                color: Theme.of(context).colorScheme.surface,
               ),
         ),
         Text(
@@ -65,7 +65,7 @@ class BookDetailsHeader extends StatelessWidget {
                 color: Theme.of(context).colorScheme.onPrimaryContainer,
               ),
         ),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         Text(
           description,
           maxLines: 2,
@@ -74,7 +74,7 @@ class BookDetailsHeader extends StatelessWidget {
                 color: Theme.of(context).colorScheme.onPrimaryContainer,
               ),
         ),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -83,13 +83,13 @@ class BookDetailsHeader extends StatelessWidget {
                 Text(
                   "Rating",
                   style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                        color: Theme.of(context).colorScheme.background,
+                        color: Theme.of(context).colorScheme.surface,
                       ),
                 ),
                 Text(
                   rating,
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                        color: Theme.of(context).colorScheme.background,
+                        color: Theme.of(context).colorScheme.surface,
                       ),
                 ),
               ],
@@ -99,13 +99,13 @@ class BookDetailsHeader extends StatelessWidget {
                 Text(
                   "Pages",
                   style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                        color: Theme.of(context).colorScheme.background,
+                        color: Theme.of(context).colorScheme.surface,
                       ),
                 ),
                 Text(
                   pages,
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                        color: Theme.of(context).colorScheme.background,
+                        color: Theme.of(context).colorScheme.surface,
                       ),
                 ),
               ],
@@ -115,13 +115,13 @@ class BookDetailsHeader extends StatelessWidget {
                 Text(
                   "Language",
                   style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                        color: Theme.of(context).colorScheme.background,
+                        color: Theme.of(context).colorScheme.surface,
                       ),
                 ),
                 Text(
                   langugae,
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                        color: Theme.of(context).colorScheme.background,
+                        color: Theme.of(context).colorScheme.surface,
                       ),
                 ),
               ],
@@ -131,13 +131,13 @@ class BookDetailsHeader extends StatelessWidget {
                 Text(
                   "Audio",
                   style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                        color: Theme.of(context).colorScheme.background,
+                        color: Theme.of(context).colorScheme.surface,
                       ),
                 ),
                 Text(
                   audioLen,
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                        color: Theme.of(context).colorScheme.background,
+                        color: Theme.of(context).colorScheme.surface,
                       ),
                 ),
               ],

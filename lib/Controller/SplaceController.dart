@@ -1,6 +1,4 @@
-import 'package:e_book/Pages/AuthPage/AuthPageBody.dart';
 import 'package:e_book/Pages/Homepage/HomePage.dart';
-import 'package:e_book/Pages/WelcomePage/WelcomePage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
@@ -16,11 +14,11 @@ class SplaceController extends GetxController {
   }
 
   void splaceController() {
-    Future.delayed(Duration(seconds: 4), () {
+    Future.delayed(const Duration(seconds: 4), () {
       if (auth.currentUser != null) {
-        Get.offAll(HomePage());
+        Get.offAll(const HomePage());
       } else {
-        Get.offAll(AuthPage());
+        Get.offAll(const AuthPage());
       }
     });
   }

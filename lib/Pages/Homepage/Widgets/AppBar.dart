@@ -1,4 +1,3 @@
-import 'package:e_book/Config/Colors.dart';
 import 'package:e_book/Controller/AuthController.dart';
 import 'package:e_book/Pages/ProfilePage/ProfilePage.dart';
 import 'package:flutter/material.dart';
@@ -25,16 +24,16 @@ class HomeAppBar extends StatelessWidget {
         Text(
           "E-BOOK",
           style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                color: Theme.of(context).colorScheme.background,
+                color: Theme.of(context).colorScheme.surface,
               ),
         ),
         InkWell(
           onTap: () {
-            Get.to(ProfilePage());
+            Get.to(const ProfilePage());
           },
           child: CircleAvatar(
               radius: 25,
-              backgroundColor: Theme.of(context).colorScheme.background,
+              backgroundColor: Theme.of(context).colorScheme.surface,
               child: ClipRRect(
                   borderRadius: BorderRadius.circular(100),
                   child: Image.network(

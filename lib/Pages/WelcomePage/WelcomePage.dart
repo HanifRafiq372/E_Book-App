@@ -1,6 +1,5 @@
 import 'package:e_book/Components/PrimaryButton.dart';
 import 'package:e_book/Controller/AuthController.dart';
-import 'package:e_book/Pages/Homepage/HomePage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -32,7 +31,7 @@ class WelcomePage extends StatelessWidget {
                       "E - Book Store",
                       style:
                           Theme.of(context).textTheme.headlineLarge?.copyWith(
-                                color: Theme.of(context).colorScheme.background,
+                                color: Theme.of(context).colorScheme.surface,
                               ),
                     ),
                     const SizedBox(height: 10),
@@ -41,7 +40,7 @@ class WelcomePage extends StatelessWidget {
                         "Here you can find best book for you and you can also read book and listens book ",
                         textAlign: TextAlign.center,
                         style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                              color: Theme.of(context).colorScheme.background,
+                              color: Theme.of(context).colorScheme.surface,
                             ),
                       ),
                     ),

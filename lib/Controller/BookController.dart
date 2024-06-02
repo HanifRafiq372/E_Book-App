@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -75,7 +74,7 @@ class BookController extends GetxController {
   }
 
   void uploadImageToFirebase(File image) async {
-    var uuid = Uuid();
+    var uuid = const Uuid();
     var filename = uuid.v1();
     var storageRef = storage.ref().child("Images/$filename");
     var response = await storageRef.putFile(image);

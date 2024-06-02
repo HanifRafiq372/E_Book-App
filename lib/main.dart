@@ -1,3 +1,4 @@
+// main.dart
 import 'package:e_book/Config/Themes.dart';
 import 'package:e_book/Pages/SplacePage/SplacePage.dart';
 import 'package:e_book/firebase_options.dart';
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'E BOOK',
       theme: lightTheme,
-      home:const SplacePage(),
+      home: const SplacePage(),
     );
   }
 }

@@ -12,17 +12,17 @@ class MyInputTextField extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        color: Theme.of(context).colorScheme.background,
+        color: Theme.of(context).colorScheme.surface,
       ),
       child: Row(
         children: [
-          SizedBox(width: 20),
+          const SizedBox(width: 20),
           InkWell(
               onTap: () {
                 bookController.getAllBooks();
               },
               child: SvgPicture.asset("Assets/Icons/search.svg")),
-          SizedBox(width: 10),
+          const SizedBox(width: 10),
           Expanded(
             child: TextFormField(
               decoration: const InputDecoration(

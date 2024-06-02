@@ -1,4 +1,3 @@
-import 'package:e_book/Components/BackButton.dart';
 import 'package:e_book/Controller/PdfController.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -14,7 +13,7 @@ class BookPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: BackButton(
-          color: Theme.of(context).colorScheme.background,
+          color: Theme.of(context).colorScheme.surface,
         ),
         backgroundColor: Theme.of(context).colorScheme.primary,
         title: Text(
@@ -22,7 +21,7 @@ class BookPage extends StatelessWidget {
           style: Theme.of(context)
               .textTheme
               .headlineMedium
-              ?.copyWith(color: Theme.of(context).colorScheme.background),
+              ?.copyWith(color: Theme.of(context).colorScheme.surface),
         ),
         centerTitle: true,
       ),
@@ -32,7 +31,7 @@ class BookPage extends StatelessWidget {
         },
         child: Icon(
           Icons.bookmark,
-          color: Theme.of(context).colorScheme.background,
+          color: Theme.of(context).colorScheme.surface,
         ),
       ),
       body: SfPdfViewer.network(

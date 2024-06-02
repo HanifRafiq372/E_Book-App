@@ -11,7 +11,7 @@ class BookActionBtn extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 60,
-      padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
       decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.primary,
           borderRadius: BorderRadius.circular(15)),
@@ -27,11 +27,11 @@ class BookActionBtn extends StatelessWidget {
             child: Row(
               children: [
                 SvgPicture.asset("Assets/Icons/book.svg"),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 Text(
                   "READ BOOK",
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                        color: Theme.of(context).colorScheme.background,
+                        color: Theme.of(context).colorScheme.surface,
                         letterSpacing: 1.2,
                       ),
                 ),
@@ -42,18 +42,18 @@ class BookActionBtn extends StatelessWidget {
             width: 3,
             height: 30,
             decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.background,
+              color: Theme.of(context).colorScheme.surface,
               borderRadius: BorderRadius.circular(10),
             ),
           ),
           Row(
             children: [
               SvgPicture.asset("Assets/Icons/playe.svg"),
-              SizedBox(width: 10),
+              const SizedBox(width: 10),
               Text(
                 "PLAY BOOK",
                 style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                      color: Theme.of(context).colorScheme.background,
+                      color: Theme.of(context).colorScheme.surface,
                       letterSpacing: 1.5,
                     ),
               ),

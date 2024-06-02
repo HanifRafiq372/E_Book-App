@@ -11,7 +11,7 @@ class ForgotPassword extends StatelessWidget {
     AuthController authController = Get.put(AuthController());
     return Scaffold(
       appBar: AppBar(
-        title: Text("Forgot Password"),
+        title: const Text("Forgot Password"),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),
@@ -23,7 +23,7 @@ class ForgotPassword extends StatelessWidget {
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.labelLarge,
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             TextFormField(
               controller: email,
               decoration: InputDecoration(
@@ -31,8 +31,8 @@ class ForgotPassword extends StatelessWidget {
                 fillColor: Theme.of(context).colorScheme.primaryContainer,
               ),
             ),
-            SizedBox(height: 20),
-            ElevatedButton(onPressed: () {}, child: Text("Reset Now")),
+            const SizedBox(height: 20),
+            ElevatedButton(onPressed: () {}, child: const Text("Reset Now")),
           ],
         ),
       ),

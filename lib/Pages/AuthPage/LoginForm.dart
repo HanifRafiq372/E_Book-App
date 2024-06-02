@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../Components/PrimaryButton.dart';
 import '../../Controller/AuthController.dart';
 import 'ForgotPassword.dart';
 
@@ -40,7 +39,7 @@ class LoginForm extends StatelessWidget {
           children: [
             InkWell(
               onTap: () {
-                Get.to(ForgotPassword());
+                Get.to(const ForgotPassword());
               },
               child: Text("Forgot Password ? ",
                   style: TextStyle(
@@ -53,7 +52,7 @@ class LoginForm extends StatelessWidget {
         const SizedBox(height: 60),
         Obx(
           () => authController.isLoading.value
-              ? CircularProgressIndicator()
+              ? const CircularProgressIndicator()
               : Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -62,7 +61,7 @@ class LoginForm extends StatelessWidget {
                         authController.loginWithEmailAndPassword(
                             email.text, password.text);
                       },
-                      child: Text("Login"),
+                      child: const Text("Login"),
                     )
                   ],
                 ),
