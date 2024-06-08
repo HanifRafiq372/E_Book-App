@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.4.1 <4.0.0'
+  sdk: '>=3.4.0-282.3'
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -48,6 +48,7 @@ dependencies:
   firebase_storage: ^11.2.7
   image_picker: ^1.0.4
   uuid: ^3.0.7
+  logger: ^2.3.0
 
 dev_dependencies:
   flutter_test:
@@ -76,6 +77,15 @@ flutter:
     - Assets/Images/
     - Assets/Icons/
     - Assets/Animation/
+    - Assets/Images/boundraries.jpg
+    - Assets/Images/When the moon split.jpg
+    - Assets/Images/You are not so smart.jpg
+    - Assets/Images/Give and Take.jpg
+    - Assets/Images/sycho.png
+    - Assets/Images/narnia.png
+    - Assets/Images/daily stoic.jpg
+    - Assets/Images/never.jpg
+    - Assets/Images/logo.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -10,6 +10,7 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:uuid/uuid.dart';
+import 'package:logger/logger.dart';
 
 class BookController extends GetxController {
   TextEditingController title = TextEditingController();
@@ -33,12 +34,14 @@ class BookController extends GetxController {
   var bookData = RxList<BookModel>();
   var currentUserBooks = RxList<BookModel>();
 
+  // Buat objek logger
+  var logger = Logger();
+
   @override
   void onInit() {
-    // TODO: implement onInit
     super.onInit();
     getAllBooks();
-   
+    getUserBook();  // Pastikan ini dipanggil untuk mengisi currentUserBooks
   }
 
   void getAllBooks() async {
@@ -52,13 +55,17 @@ class BookController extends GetxController {
 
   void getUserBook() async {
     currentUserBooks.clear();
-    var books = await db
-        .collection("userBook")
-        .doc(fAuth.currentUser!.uid)
-        .collection("Books")
-        .get();
-    for (var book in books.docs) {
-      currentUserBooks.add(BookModel.fromJson(book.data()));
+    if (fAuth.currentUser != null) {
+      var books = await db
+          .collection("userBook")
+          .doc(fAuth.currentUser!.uid)
+          .collection("Books")
+          .get();
+      for (var book in books.docs) {
+        currentUserBooks.add(BookModel.fromJson(book.data()));
+      }
+    } else {
+      logger.w("User not logged in"); // Menggunakan logger
     }
   }
 
@@ -67,7 +74,7 @@ class BookController extends GetxController {
     final XFile? image =
         await imagePicker.pickImage(source: ImageSource.gallery);
     if (image != null) {
-      print(image.path);
+      logger.d(image.path); // Menggunakan logger
       uploadImageToFirebase(File(image.path));
     }
     isImageUploading.value = false;
@@ -80,7 +87,7 @@ class BookController extends GetxController {
     var response = await storageRef.putFile(image);
     String downloadURL = await storageRef.getDownloadURL();
     imageUrl.value = downloadURL;
-    print("Download URL: $downloadURL");
+    logger.d("Download URL: $downloadURL"); // Menggunakan logger
     isImageUploading.value = false;
   }
 
@@ -132,29 +139,32 @@ class BookController extends GetxController {
       if (file.existsSync()) {
         Uint8List fileBytes = await file.readAsBytes();
         String fileName = result.files.first.name;
-        print("File Bytes: $fileBytes");
+        logger.d("File Bytes: $fileBytes"); // Menggunakan logger
 
         final response =
             await storage.ref().child("Pdf/$fileName").putData(fileBytes);
 
         final downloadURL = await response.ref.getDownloadURL();
         pdfUrl.value = downloadURL;
-        print(downloadURL);
+        logger.i(downloadURL); // Menggunakan logger
       } else {
-        print("File does not exist");
+        logger.e("File does not exist"); // Menggunakan logger
       }
     } else {
-      print("No file selected");
+      logger.w("No file selected"); // Menggunakan logger
     }
     isPdfUploading.value = false;
   }
 
   void addBookInUserDb(BookModel book) async {
-    await db
-        .collection("userBook")
-        .doc(fAuth.currentUser!.uid)
-        .collection("Books")
-        .add(book.toJson());
+    if (fAuth.currentUser != null) {
+      await db
+          .collection("userBook")
+          .doc(fAuth.currentUser!.uid)
+          .collection("Books")
+          .add(book.toJson());
+    } else {
+      logger.w("User not logged in, cannot add book to user DB"); // Menggunakan logger
+    }
   }
-
 }

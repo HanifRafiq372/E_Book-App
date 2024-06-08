@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 
 class BookDetails extends StatelessWidget {
   final BookModel book;
+
   const BookDetails({super.key, required this.book});
 
   @override
@@ -63,7 +64,7 @@ class BookDetails extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        "About book",
+                        "About author",
                         style: Theme.of(context).textTheme.bodyMedium,
                       ),
                     ],

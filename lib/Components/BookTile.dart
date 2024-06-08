@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class BookTile extends StatelessWidget {
   final String title;
@@ -7,7 +7,7 @@ class BookTile extends StatelessWidget {
   final String author;
   final int price;
   final String rating;
-  final int totalRating;
+  final int numberofRating; // Gunakan numberofRating
   final VoidCallback ontap;
 
   const BookTile({
@@ -17,7 +17,7 @@ class BookTile extends StatelessWidget {
     required this.author,
     required this.price,
     required this.rating,
-    required this.totalRating,
+    required this.numberofRating, // Gunakan numberofRating
     required this.ontap,
   });
 
@@ -59,40 +59,43 @@ class BookTile extends StatelessWidget {
               ),
               const SizedBox(width: 10),
               Expanded(
-                  child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    title,
-                    maxLines: 2,
-                    style: Theme.of(context).textTheme.bodyLarge,
-                  ),
-                  const SizedBox(height: 4),
-                  Text("By : $author",
-                      style: Theme.of(context).textTheme.labelMedium),
-                  const SizedBox(height: 5),
-                  Text(
-                    "Price : $price",
-                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                          color: Theme.of(context).colorScheme.secondary,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      maxLines: 2,
+                      style: Theme.of(context).textTheme.bodyLarge,
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      "By : $author",
+                      style: Theme.of(context).textTheme.labelMedium,
+                    ),
+                    const SizedBox(height: 5),
+                    Text(
+                      "Price : $price",
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        color: Theme.of(context).colorScheme.secondary,
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    Row(
+                      children: [
+                        SvgPicture.asset("Assets/Icons/star.svg"),
+                        Text(
+                          rating,
+                          style: Theme.of(context).textTheme.bodyMedium,
                         ),
-                  ),
-                  const SizedBox(height: 10),
-                  Row(
-                    children: [
-                      SvgPicture.asset("Assets/Icons/star.svg"),
-                      Text(
-                        rating,
-                        style: Theme.of(context).textTheme.bodyMedium,
-                      ),
-                      Text(
-                        "($totalRating ratings)",
-                        style: Theme.of(context).textTheme.labelMedium,
-                      ),
-                    ],
-                  )
-                ],
-              ))
+                        Text(
+                          "($numberofRating ratings)", // Gunakan numberofRating
+                          style: Theme.of(context).textTheme.labelMedium,
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              ),
             ],
           ),
         ),

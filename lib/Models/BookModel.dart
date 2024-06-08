@@ -13,71 +13,42 @@ class BookModel {
   String? category;
   String? coverUrl;
   int? price;
-  String? numberofRating;
+  int? numberofRating; // Ubah tipe data menjadi int
 
-  BookModel(
-      {this.id,
-      this.title,
-      this.description,
-      this.rating,
-      this.pages,
-      this.language,
-      this.audioLen,
-      this.author,
-      this.aboutAuthor,
-      this.bookurl,
-      this.audioUrl,
-      this.category,
-      this.price,
-      this.coverUrl,
-      this.numberofRating});
+  BookModel({
+    this.id,
+    this.title,
+    this.description,
+    this.rating,
+    this.pages,
+    this.language,
+    this.audioLen,
+    this.author,
+    this.aboutAuthor,
+    this.bookurl,
+    this.audioUrl,
+    this.category,
+    this.coverUrl,
+    this.price,
+    this.numberofRating, // Pastikan parameter ini ada
+  });
 
   BookModel.fromJson(Map<String, dynamic> json) {
-    if (json["id"] is String) {
-      id = json["id"];
-    }
-    if (json["title"] is String) {
-      title = json["title"];
-    }
-    if (json["description"] is String) {
-      description = json["description"];
-    }
-    if (json["rating"] is String) {
-      rating = json["rating"];
-    }
-    if (json["pages"] is int) {
-      pages = json["pages"];
-    }
-    if (json["language"] is String) {
-      language = json["language"];
-    }
-    if (json["audioLen"] is String) {
-      audioLen = json["audioLen"];
-    }
-    if (json["author"] is String) {
-      author = json["author"];
-    }
-    if (json["aboutAuthor"] is String) {
-      aboutAuthor = json["aboutAuthor"];
-    }
-    if (json["bookurl"] is String) {
-      bookurl = json["bookurl"];
-    }
-    if (json["audioUrl"] is String) {
-      audioUrl = json["audioUrl"];
-    }
-    if (json["category"] is String) {
-      category = json["category"];
-    }
-    if (json["coverUrl"] is String) {
-      coverUrl = json["coverUrl"];
-    }
-    if (json["price"] is int) {
-      price = json["price"];
-    }
-    if (json["numberofRating"] is int) {
-      numberofRating = json["numberofRating"];
-    }
+    id = json["id"];
+    title = json["title"];
+    description = json["description"];
+    rating = json["rating"];
+    pages = json["pages"];
+    language = json["language"];
+    audioLen = json["audioLen"];
+    author = json["author"];
+    aboutAuthor = json["aboutAuthor"];
+    bookurl = json["bookurl"];
+    audioUrl = json["audioUrl"];
+    category = json["category"];
+    coverUrl = json["coverUrl"];
+    price = json["price"];
+    numberofRating = json["numberofRating"];
   }
 
   Map<String, dynamic> toJson() {

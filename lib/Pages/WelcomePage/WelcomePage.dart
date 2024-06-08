@@ -1,5 +1,5 @@
+import 'package:e_book/Controller/AuthController.dart'; // Import AuthController
 import 'package:e_book/Components/PrimaryButton.dart';
-import 'package:e_book/Controller/AuthController.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -8,87 +8,88 @@ class WelcomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AuthController authController = Get.put(AuthController());
+    final AuthController authController = Get.find();
     return Scaffold(
-      body: Column(
-        children: [
-          Container(
-            height: 500,
-            padding: const EdgeInsets.all(20),
-            color: Theme.of(context).colorScheme.primary,
-            child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-              Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const SizedBox(height: 50),
-                    Image.asset(
-                      "Assets/Images/book.png",
-                      width: 380,
-                    ),
-                    const SizedBox(height: 60),
-                    Text(
-                      "E - Book Store",
-                      style:
-                          Theme.of(context).textTheme.headlineLarge?.copyWith(
-                                color: Theme.of(context).colorScheme.surface,
-                              ),
-                    ),
-                    const SizedBox(height: 10),
-                    Flexible(
-                      child: Text(
-                        "Here you can find best book for you and you can also read book and listens book ",
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                              color: Theme.of(context).colorScheme.surface,
-                            ),
-                      ),
-                    ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              height: MediaQuery.of(context).size.height * 0.6,
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 40),
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    Color(0xFF1C2638),
+                    Color(0xFF0F6DFB),
                   ],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
                 ),
-              )
-            ]),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(10),
-            child: Column(
-              children: [
-                const SizedBox(height: 30),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Disclaimer",
-                      style: Theme.of(context).textTheme.labelMedium,
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    "Assets/Images/logo.png",
+                    width: 150, // Sesuaikan lebar
+                    height: 150, // Sesuaikan tinggi
+                  ),
+                  const SizedBox(height: 20),
+                  Text(
+                    "EduPrime App",
+                    style: Theme.of(context).textTheme.headline5?.copyWith(
+                      color: Theme.of(context).colorScheme.surface,
+                      fontWeight: FontWeight.bold,
                     ),
-                  ],
-                ),
-                const SizedBox(height: 10),
-                Row(
-                  children: [
-                    Flexible(
-                      child: Text(
-                        "n publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum",
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.labelSmall,
-                      ),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 10),
+                  Text(
+                    "E-Book Learning",
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.subtitle1?.copyWith(
+                      color: Theme.of(context).colorScheme.surface,
                     ),
-                  ],
-                ),
-              ],
+                  ),
+                ],
+              ),
             ),
-          ),
-          const Spacer(),
-          Padding(
-            padding: const EdgeInsets.all(10),
-            child: PrimaryButton(
-              btnName: "LOGIN WITH GOOGLE",
-              ontap: () {
-                authController.loginWithEmail();
-              },
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                children: [
+                  Text(
+                    "Disclaimer",
+                    style: Theme.of(context).textTheme.subtitle2, // Menggunakan subtitle2
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 10),
+                  Text(
+                    "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum",
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.bodyText2, // Menggunakan bodyText2
+                  ),
+                  const SizedBox(height: 20),
+                  PrimaryButton(
+                    btnName: "LOGIN",
+                    onTap: () {
+                      authController.loginWithEmail();
+                    },
+                    color: Theme.of(context).colorScheme.primary,
+                  ),
+                  const SizedBox(height: 10),
+                  PrimaryButton(
+                    btnName: "SIGNUP",
+                    onTap: () {
+                      authController.signupWithEmailPassword(); // Menggunakan signupWithEmailPassword
+                    },
+                    color: Theme.of(context).colorScheme.primary,
+                  ),
+                ],
+              ),
             ),
-          )
-        ],
+          ],
+        ),
       ),
     );
   }

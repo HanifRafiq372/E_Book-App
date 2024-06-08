@@ -4,7 +4,14 @@ import 'package:flutter/material.dart';
 class PrimaryButton extends StatelessWidget {
   final String btnName;
   final VoidCallback ontap;
-  const PrimaryButton({super.key, required this.btnName, required this.ontap});
+  final Color? color; // Tambahkan parameter color
+
+  const PrimaryButton({
+    super.key,
+    required this.btnName,
+    required this.ontap,
+    this.color, // Tambahkan parameter color
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +21,7 @@ class PrimaryButton extends StatelessWidget {
         height: 55,
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.primary,
+          color: color ?? Theme.of(context).colorScheme.primary, // Gunakan parameter color
           borderRadius: BorderRadius.circular(10),
         ),
         child: Row(
